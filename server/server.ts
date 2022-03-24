@@ -2,7 +2,8 @@ import express from 'express';
 const mongoose = require("mongoose");
 //const products = require('./Routers/ProductRouter')
 const app = express();
-const port = 4001;
+
+const port = process.env.PORT || 4001;
 const productsRoute = require('./routes/products');
 const bodyParser = require('body-parser');
 require('dotenv/config');
@@ -12,7 +13,7 @@ app.use(bodyParser.json());
 
 app.use('/products',productsRoute);
 
-app.use(express.static('../Client/build'));
+app.use(express.static('../client/build'));
 app.use(express.json());
 
 app.get("/", (req,res)=>{ 

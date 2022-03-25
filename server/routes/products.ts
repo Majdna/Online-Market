@@ -17,6 +17,10 @@ router.get('/', async(req,res)=>{
     }
 });
 
+
+
+
+
 router.post('/',(req,res)=>{
     const { id,
         name,
@@ -47,6 +51,17 @@ router.post('/',(req,res)=>{
         try {
             const removedProduct= await Products.remove({_id: req.params.productId});
             res.json(removedProduct);
+           
+        } catch (error: any) {
+            res.send({ ok: false, error: error.message });
+        }
+    });
+
+    //GET PRODUCT BY ID
+    router.post('/:productId', async(req,res)=>{
+        try {
+            const productById= await Products.findOne({_id: req.params.productId});
+            res.json(productById);
            
         } catch (error: any) {
             res.send({ ok: false, error: error.message });

@@ -31,10 +31,10 @@ interface product {
 
 function Store() {
 
-  //const user = useAppSelector(state=> state.user)
-  // user.email example
+   const user = useAppSelector(state=> state.user)
+  
   useEffect(() => {
-    //console.log(user.ID)
+  
     axios.get('http://localhost:4001/products').then(({ data }) => {
       console.log(data.products);
       setProducts(data.products);
@@ -44,13 +44,9 @@ function Store() {
  
   }, []);
 
-  useEffect(() => {
-    //console.log(user.ID)
-    console.log(products)
-  }, []);
 
 
-  // const products:any = axios.get('http://localhost:3004/products').then(({data})=>console.log(data));
+ 
   const [catagory, setCatagory] = useState("All")
   const [products, setProducts] = useState<Array<any>>([]);
   const [productByCatagory, setProductByCatagory] = useState<Array<any>>([products])
@@ -81,11 +77,7 @@ function Store() {
   return (
     
     <div className="App">
-      {/* <div>
-        {productByCatagory.map((product) => (
-       <div> {product.name} </div>
-      ))};
-      </div> */}
+      
    
      <header className='header'>     <div className="header">
   
@@ -134,11 +126,6 @@ function Store() {
        <Card key={product.id} id={product.id} name={product.name} price={product.price} catagory={product.catagory} quantity={product.quantity} description={product.description} Url={product.Url}/>
        </div>
       ))};
-
-        {/* { {productByCatagory.map((product, i) => {
-          const { id, name, price, catagory, quantity,amount, description, Url } = product;
-          return <Card key={i} id={id} name={name} price={price} catagory={catagory} quantity={quantity} description={description} Url={Url} />
-        })}   */}
 
        
       </div>  

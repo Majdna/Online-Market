@@ -14,34 +14,46 @@ import { Link } from "react-router-dom";
 
 
 interface product {
-  id: number;
+  _id:string;
+  id: string;
   name: string;
   price: number;
   catagory: string;
   quantity: number;
+  amount: number,
   description: string;
   Url: string;
 
 }
 
+
+
+
 function Store() {
 
-  const user = useAppSelector(state=> state.user)
+  //const user = useAppSelector(state=> state.user)
   // user.email example
   useEffect(() => {
-    console.log(user.ID)
-    axios.get('http://localhost:3004/products1').then(({ data }) => {
-      console.log(data);
-      setProducts(data);
-      setProductByCatagory(data);
+    //console.log(user.ID)
+    axios.get('http://localhost:4001/products').then(({ data }) => {
+      console.log(data.products);
+      setProducts(data.products);
+      console.log(products);
+     setProductByCatagory(data.products);
     })
+ 
+  }, []);
+
+  useEffect(() => {
+    //console.log(user.ID)
+    console.log(products)
   }, []);
 
 
   // const products:any = axios.get('http://localhost:3004/products').then(({data})=>console.log(data));
   const [catagory, setCatagory] = useState("All")
-  const [products, setProducts] = useState([])
-  const [productByCatagory, setProductByCatagory] = useState(products)
+  const [products, setProducts] = useState<Array<any>>([]);
+  const [productByCatagory, setProductByCatagory] = useState<Array<any>>([products])
   
   useEffect(()=>{
     function handleClick() {
@@ -67,9 +79,16 @@ function Store() {
 
 
   return (
-
+    
     <div className="App">
-      <header className='header'>     <div className="header">
+      {/* <div>
+        {productByCatagory.map((product) => (
+       <div> {product.name} </div>
+      ))};
+      </div> */}
+   
+     <header className='header'>     <div className="header">
+  
 
 <div className='header-left'>   <Link to="/Store">Store</Link>
 </div>
@@ -84,7 +103,7 @@ function Store() {
 </div>
 </div></header>
 
-      {/* <Bar></Bar> */}
+ 
 
       <div className="navbar">
         <a href="#All" onClick={(ev: any) => { setCatagory("All") }} >All Product</a>
@@ -107,13 +126,24 @@ function Store() {
         </div>
       </div>
       <div className="wrapper">
-        {productByCatagory.map((product, i) => {
-          const { id, name, price, catagory, quantity, description, Url } = product;
-          return <Card key={i} id={id} name={name} price={price} catagory={catagory} quantity={quantity} description={description} Url={Url} />
-        })}
+      
 
-        {/* <Cart arr={products}  /> */}
-      </div>
+      {productByCatagory.map((product) => (
+       <div>
+       
+       <Card key={product.id} id={product.id} name={product.name} price={product.price} catagory={product.catagory} quantity={product.quantity} description={product.description} Url={product.Url}/>
+       </div>
+      ))};
+
+        {/* { {productByCatagory.map((product, i) => {
+          const { id, name, price, catagory, quantity,amount, description, Url } = product;
+          return <Card key={i} id={id} name={name} price={price} catagory={catagory} quantity={quantity} description={description} Url={Url} />
+        })}   */}
+
+       
+      </div>  
+      
+   
     </div>
   );
 }

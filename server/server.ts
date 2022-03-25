@@ -2,17 +2,15 @@ import express from 'express';
 const mongoose = require("mongoose");
 //const products = require('./Routers/ProductRouter')
 const app = express();
-
+const cors = require('cors');
 const port = process.env.PORT || 4001;
 const productsRoute = require('./routes/products');
 const bodyParser = require('body-parser');
 require('dotenv/config');
 
+app.use(cors());
 app.use(bodyParser.json());
-
-
 app.use('/products',productsRoute);
-
 app.use(express.static('../client/build'));
 app.use(express.json());
 

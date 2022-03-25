@@ -1,14 +1,17 @@
+import Products from "../Model/products";
+
+export { }
 const express = require('express');
 const router = express.Router();
-const Product = require('../Model/products');
+
 
 
 //GET ALL PRODUCTS
 router.get('/', async(req,res)=>{
     console.log('getAllProducts');
     try {
-        const _products = await Product.find({});
-        res.send({ ok: true, products: _products });
+        const _products = await Products.find({});
+        res.send({ products: _products });
     } catch (error: any) {
         res.send({ ok: false, error: error.message });
     }
@@ -27,7 +30,7 @@ router.post('/',(req,res)=>{
 
     try{
     
-        const product = new Product({
+        const product = new Products({
             id:id,name:name,price:price,catagory:catagory,quantity:quantity,amount:amount,description:description,Url:Url
         });
         product.save()
@@ -42,7 +45,7 @@ router.post('/',(req,res)=>{
       //DELETE PRODUCT BY ID
       router.delete('/:productId', async(req,res)=>{
         try {
-            const removedProduct= await Product.remove({_id: req.params.productId});
+            const removedProduct= await Products.remove({_id: req.params.productId});
             res.json(removedProduct);
            
         } catch (error: any) {

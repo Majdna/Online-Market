@@ -23,7 +23,6 @@ interface product {
   amount: number,
   description: string;
   Url: string;
-
 }
 
 
@@ -36,17 +35,17 @@ function Store() {
   useEffect(() => {
   
     axios.get('http://localhost:4001/products').then(({ data }) => {
-      console.log(data.products);
+      //console.log(data.products);
       setProducts(data.products);
-      console.log(products);
+      //console.log(products);
      setProductByCatagory(data.products);
     })
  
   }, []);
 
+  
 
-
- 
+  
   const [catagory, setCatagory] = useState("All")
   const [products, setProducts] = useState<Array<any>>([]);
   const [productByCatagory, setProductByCatagory] = useState<Array<any>>([products])

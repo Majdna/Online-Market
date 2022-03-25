@@ -67,4 +67,18 @@ router.post('/',(req,res)=>{
             res.send({ ok: false, error: error.message });
         }
     });
+
+     /* FIX IT !!!!! NOT CORRECT*/
+     // update product quantity (by broduct id)
+    router.patch('/:productId', async (req, res) => {
+        try {
+          const update = await Products.updateOne(
+            { _id: req.params.productId },
+            { $set: { quantity: req.body.quantity } }
+          );
+          res.json(update);
+        } catch (err) {
+          res.json({ message: err });
+        }
+      });
 module.exports = router;

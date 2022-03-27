@@ -1,5 +1,5 @@
 
-const Users= require('../Model/users');
+import Users from "../Model/users";
 
 export { }
 const express = require('express');

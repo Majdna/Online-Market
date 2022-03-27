@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 
-//const  {UserSchema} = require("./users");
+const  {UserSchema} = require("./users");
 
 
  export const GroupSchema = new mongoose.Schema({
@@ -11,7 +11,7 @@ const mongoose = require('mongoose');
     "Name": String,
     "adminId": String,
     "Members": [{"id":String}]
-    
+
 }) 
 
 const Groups = mongoose.model('Groups',GroupSchema);

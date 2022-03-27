@@ -1,5 +1,5 @@
 import Products from "../Model/products";
-
+//const Products = require("../Model/products");
 export { }
 const express = require('express');
 const router = express.Router();
@@ -81,4 +81,9 @@ router.post('/',(req,res)=>{
           res.json({ message: err });
         }
       });
+    // router.patch("/:id", (req, res) => {
+    //     const product = Products.find(val => val.id === Number(req.params.id));
+    //     product.quantity= req.body.name;
+    //     return res.json({ message: "Updated" });
+    //   });
 module.exports = router;

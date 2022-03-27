@@ -25,6 +25,11 @@ body {
   overflow: hidden;
   background-color: #000000;
   padding: 20px 10px;
+  img{
+    height: 90px;
+    width: 110px;
+    padding: 0px 200px;
+  }
 }
 
 
@@ -59,8 +64,9 @@ body {
 
 .header header-right {
   float: right;
-
+  
 }
+
 ul {
   list-style-type: none;
   margin: 1fr;

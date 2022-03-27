@@ -10,7 +10,7 @@ import Header from '../../components/header/header';
 import { Console } from 'console';
 import { useAppSelector } from '../../../app/hooks';
 import { Link } from "react-router-dom";
-
+import logo from '../logo.png';
 
 
 interface product {
@@ -84,6 +84,7 @@ function Store() {
 <div className='header-left'>   <Link to="/Store">Store</Link>
 </div>
 <div className="header-right">
+
   <Link to="/Cart">To The Cart</Link>
   <a href="#contact">Requests</a>
   <a href="#about">Profile</a>
@@ -91,6 +92,7 @@ function Store() {
   <Link to="/logIn">LogOut</Link>
   <Link to="/help">help</Link>
   <Link to="/aboutUsIn">About Us</Link>
+  <div className="logo-img"><img src={logo}/></div> 
 </div>
 </div></header>
 

@@ -1,14 +1,14 @@
-// export { }
-// import ProductSchema  from './products';
-// const mongoose = require('mongoose');
 
+//import ProductSchema  from './products';
+const mongoose = require('mongoose');
+const {ProductSchema} = require('./products');
 
-// const OrderSchema = mongoose.Schema({
-//     "Id": String,
-//     "OwnerId": String,
-//     "groupId": String,
-//     "cartProducts": [ProductSchema]
-// }) 
+ export const OrderSchema = new mongoose.Schema({
+    "Id": String,
+    "OwnerId": String,
+    "groupId": String,
+    "cartProducts": [ProductSchema]
+}) 
 
-// const Orders = mongoose.model('OrderSchema',OrderSchema);
-// export default Orders;
+const Orders = mongoose.model('Orders',OrderSchema);
+export default Orders;

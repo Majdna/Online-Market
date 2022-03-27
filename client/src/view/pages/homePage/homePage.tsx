@@ -2,8 +2,7 @@ import './homePage.scss';
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
-
-
+import logo from '../logo.png';
 
 const HomePage = () =>{
     // useEffect(()=>{
@@ -22,6 +21,7 @@ const HomePage = () =>{
             <Link to="/signUp">Sign UP</Link>
             <br />
             <Link to="/AboutUs">About Us</Link>
+            <img src={logo}/>
             </div>
         </div>
     )

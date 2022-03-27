@@ -1,12 +1,18 @@
-// const mongoose = require('mongoose');
-// import  UserSchema  from './users';
 
-// const GroupSchema = mongoose.Schema({
-//     "Id": String,
-//     "Name": String,
-//     "adminId": String,
-//     "Members": [UserSchema]
-// }) 
 
-// const Groups = mongoose.model('GroupSchema',GroupSchema);
-// export default Groups;
+const mongoose = require('mongoose');
+
+//const  {UserSchema} = require("./users");
+
+
+ export const GroupSchema = new mongoose.Schema({
+
+    "Id": String,
+    "Name": String,
+    "adminId": String,
+    "Members": [{"id":String}]
+    
+}) 
+
+const Groups = mongoose.model('Groups',GroupSchema);
+export default Groups;

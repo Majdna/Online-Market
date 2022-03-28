@@ -97,10 +97,10 @@ const AddProduct = () => {
                         <input type="text" placeholder='Product Url'  onKeyUp={(e:any)=> setUrl(e.target.value) }/>
 
                         <br /><br />
-                        <button type="submit" className='btn' >submit</button>
+                        <button type="submit" className='btn' >Add Product</button>
                     </form>
                     <br />
-                    <Link to="/Seller">cancle</Link>
+                    <Link to="/Seller">cancel</Link>
 
                 </div>
             </div>

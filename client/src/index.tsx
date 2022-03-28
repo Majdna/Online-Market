@@ -54,7 +54,7 @@ ReactDOM.render(
         <Route path="/HomePage" element={<HomePage />} />
         <Route path="/mygroups" element={<Mygroups />} />
         <Route path="/mygroups/:id" element={<GroupDetails />} />
-        {/* <Route path="/users/:id" element={<Profile2 />} /> */}
+         <Route path="/users/:id" element={<Profile />} /> 
         <Route path="/GroupDetails" element={<GroupDetails />} />
         <Route path="/AddProduct" element={<AddProduct />} />
         <Route path="/EditProduct" element={<EditProduct />} />

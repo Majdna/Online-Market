@@ -79,4 +79,15 @@ router.post('/',(req,res)=>{
     //         res.send({ ok: false, error: error.message });
     //     }
     // });
+
+        //GET user BY ID
+        router.post('/:userId', async(req,res)=>{
+            try {
+                const userById= await Users.findOne({ID: req.params.productId});
+                res.json(userById);
+               
+            } catch (error: any) {
+                res.send({ ok: false, error: error.message });
+            }
+        });
 module.exports = router;

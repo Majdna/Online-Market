@@ -96,7 +96,7 @@ const Seller = () => {
 
                 <div className="search_product">
                     <Link to="/AddProduct">Add Product</Link>
-                    <button onClick={handleClickFunc} >add Product From mongo</button>
+                    {/* <button onClick={handleClickFunc} >add Product From mongo</button> */}
                     <input className="searchDiv__bar__content__a__input" type="text" placeholder=" Search a product" name="search" />
                 </div>
             </div>

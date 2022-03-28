@@ -36,7 +36,7 @@ const AddProduct = () => {
         e.preventDefault();
         const products:product = {"id":id ,"name":name,"price":price,"catagory":catagory,"amount":amount,"quantity":quantity,"description":description,"Url":Url}
         console.log(products);
-        axios.post(`http://localhost:3004/products1`, products)
+        axios.post(`http://localhost:4001/products`, products)
         .then(res => {
           console.log(res);
           console.log(res.data);
@@ -66,9 +66,6 @@ const AddProduct = () => {
                 <div>
                     <form className='form' onSubmit={handleSubmit} >
                         <h1> Add new Product </h1>
-                        <br /><br />
-                        <input type="text" placeholder='Product Id' onKeyUp={(e:any)=> setId(e.target.value) } />
-
                         <br /><br />
                         <input type="text" placeholder='Product Name' onKeyUp={(e:any)=> setName(e.target.value) } />
 

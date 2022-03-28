@@ -1,11 +1,36 @@
 
 import Users from "../Model/users";
-
+const jwt = require('jwt-simple');
 export { }
 const express = require('express');
 const router = express.Router();
 
 
+router.post( "/login", async(req,res)=>{
+
+    try {
+        const {ID , password} = req.body;
+        const foundUser = await Users.findOne({id:ID})
+        if(foundUser){
+            if(foundUser.password===password){
+             console.log(password);
+              var payload = { id: ID };
+              var secret = process.env.SECRET;
+              var token = jwt.encode(payload, secret);  
+              res.cookie("userInfo",token);
+              res.send({ok:true});
+            }else{
+                res.send({ok:false})
+            }
+        }else{
+          res.send({ok:false})
+      }
+   
+      
+    } catch (error) {
+      res.send({ok:false})
+     }
+  })
 
 //GET ALL USERS
 router.get('/', async(req,res)=>{

@@ -20,7 +20,7 @@ router.get('/', async(req,res)=>{
 
 
 
-
+//add product
 router.post('/',(req,res)=>{
     const { id,
         name,

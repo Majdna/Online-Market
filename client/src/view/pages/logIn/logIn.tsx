@@ -23,12 +23,13 @@ function Login() {
         
         // dispatch(login([ID, password, true]));
 
-            // if(ID === "314763467" && password==="123456")
-            // {  nav("/Seller");}
-            //  else if(ID !== "" && password!=="")
-            //   {
-            //     nav("/Group");} 
-            //  }
+            if(ID === "316349349" && password==="123456"){
+             nav("/Seller");
+            }
+              else if(ID !== "" && password!=="")
+             {
+                nav("/Group");
+              }
     }
 
     return (

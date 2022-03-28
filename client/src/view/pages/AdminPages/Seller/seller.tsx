@@ -29,11 +29,12 @@ const Seller = () => {
     const admin = useAppSelector(state => state.user)
 
     useEffect(() => {
-        axios.get('http://localhost:3004/products1').then(({ data }) => {
-            console.log(data);
-            setProducts(data);
-            setProductByCatagory(data);
-        })
+        axios.get('http://localhost:4001/products').then(({ data }) => {
+            //console.log(data.products);
+            setProducts(data.products);
+            //console.log(products);
+           setProductByCatagory(data.products);
+          })
     }, []);
 
     const [catagory, setCatagory] = useState("")

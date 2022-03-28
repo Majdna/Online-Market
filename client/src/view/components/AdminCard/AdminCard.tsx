@@ -83,13 +83,13 @@ function AdminCard(prop: any) {
   }
 
   const { id, name, price, catagory, quantity, amount, description, Url } = prop;
-  const [color, setColor] = useState('red');
+  //const [color, setColor] = useState('red');
 
 
 
   return (
 
-    <div className="card" style={{ backgroundColor: color }} >
+    <div className="card"  >
 
       <img src={Url} alt="" />
       <h3>{name}</h3>

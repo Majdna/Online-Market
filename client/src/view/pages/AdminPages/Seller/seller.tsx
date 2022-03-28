@@ -43,13 +43,13 @@ const Seller = () => {
 
 
     function handleClickFunc(){
-        axios.post("/product/addProduct",{id:123,name:"apple",price:100,quantity:10,description:"sssss",Url:"1111111"});
+        //axios.post("/product/addProduct",{id:123,name:"apple",price:100,quantity:10,description:"sssss",Url:"1111111"});
     }
     useEffect(() => {
 
         function handleClick() {
             // ev.preventDefault();
-            console.log(catagory)
+            //console.log(catagory)
             const arr = products.filter((element: any) => {
                 if (element.catagory === catagory) {
                     return element;
@@ -59,7 +59,7 @@ const Seller = () => {
             if (catagory === "All" || catagory === "") {
                 setProductByCatagory([...products]);
             }
-            console.log(arr)
+           // console.log(arr)
 
         }
         handleClick();

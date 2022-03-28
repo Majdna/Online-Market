@@ -10,8 +10,8 @@ import { useAppSelector } from '../../../../app/hooks';
 export default function Profile() {
     const {id} = useParams();
     const admin = useAppSelector(state=> state.user)
-    console.log(admin);
-    useEffect(()=>{axios.get(`http://localhost:4001/users/${admin.ID}`).then(({data})=>{
+    console.log(admin)
+    useEffect(()=>{axios.post(`http://localhost:4001/users/${admin.ID}`).then(({data})=>{
     console.log('Response from main API: ',data)
     console.log(data);
     setFullName(data.fullName);

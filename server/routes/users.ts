@@ -11,21 +11,23 @@ router.post( "/login", async(req,res)=>{
     try {
         const {ID , password} = req.body;
         const foundUser = await Users.findOne({id:ID})
+
+        console.log(foundUser.password);
         if(foundUser){
             if(foundUser.password===password){
-             console.log(password);
+   
               var payload = { id: ID };
-              var secret = process.env.SECRET;
-              var token = jwt.encode(payload, secret);  
-              res.cookie("userInfo",token);
-              res.send({ok:true});
+              //var secret = process.env.SECRET;
+             // var token = jwt.encode(payload, secret);  
+            //  res.cookie("userInfo",token);
+              res.send({ok:true,user:foundUser});
             }else{
                 res.send({ok:false})
             }
         }else{
           res.send({ok:false})
       }
-   
+
       
     } catch (error) {
       res.send({ok:false})
@@ -84,6 +86,7 @@ router.post('/',(req,res)=>{
         router.post('/:userId', async(req,res)=>{
             try {
                 const userById= await Users.findOne({ID: req.params.productId});
+                console.log(req.params.productId);
                 res.json(userById);
                
             } catch (error: any) {

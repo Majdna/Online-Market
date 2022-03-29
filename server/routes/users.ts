@@ -87,7 +87,7 @@ router.post('/',(req,res)=>{
 
         router.post('/:userId', async(req,res)=>{
             try {
-                const userById= await Users.findOne({ID: req.params.userId});
+                const userById= await Users.findOne({id: req.params.userId});
                 console.log(userById);
                 res.json(userById);
                

@@ -126,7 +126,7 @@ function Store() {
        
        <Card key={product.id} id={product.id} name={product.name} price={product.price} catagory={product.catagory} quantity={product.quantity} description={product.description} Url={product.Url}/>
        </div>
-      ))};
+      ))}
 
        
       </div>  

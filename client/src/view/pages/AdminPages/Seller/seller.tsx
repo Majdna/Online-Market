@@ -4,12 +4,15 @@ import Header from '../../../components/header/header';
 import './Seller.scss';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-//components
+
+
 import AdminCard from '../../../components/AdminCard/AdminCard';
 import { useAppSelector } from '../../../../app/hooks';
 
+
 import Bar from '../../../components/productBar/bar';
 import { Console } from 'console';
+
 
 interface product {
     id: number;

@@ -32,7 +32,7 @@ function Card(prop: any) {
     if(tempCounter>=7)
       tempCounter=7;
     setCounter(tempCounter);
-   axios.patch(`http://localhost:4001/products/${_id}`,{ quantity:counter}).then(({data})=>console.log(data));
+   axios.patch(`http://localhost:4001/products/${_id}`,{ quantity:counter});
 
 
   }
@@ -43,7 +43,7 @@ function Card(prop: any) {
         tempCounter=0;
       }
       setCounter(tempCounter);
-      axios.patch(`http://localhost:4001/products/${_id}`,{ quantity:counter}).then(({data})=>console.log(data));
+      axios.patch(`http://localhost:4001/products/${_id}`,{ quantity:counter});
   }
 
   const {_id, name, price,quantity, description,  Url} = prop;

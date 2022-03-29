@@ -29,12 +29,15 @@ function Cart(prop: any) {
   const [allProducts,setAllProducts] = useState([]);
 
   const [products,setProducts]=useState([]);
-  useEffect(()=>{axios.get('http://localhost:3004/products1').then(({data})=>{
-  console.log(data);
-  setAllProducts(data);
-  const filterProducts = data.filter((product:product) =>  product.quantity>0);
-  setProducts(filterProducts);
-  console.log(filterProducts);
+  useEffect(()=>{axios.get('http://localhost:4001/Products').then(({data})=>{
+  const {products} = data; 
+  console.log(products);
+  setAllProducts(products.filter((product:any)=> {
+    if(product.quantity>0){
+      return product;
+    }
+  }));
+  
 })},[]);
 
 // const products = allProducts.filter((product:product) =>  product.quantity>0)
@@ -57,7 +60,7 @@ return(
 </div></header>
 
       <div className="cart">
-     {products.map((product:product, i:number) => {
+     {allProducts.map((product:product, i:number) => {
           const { id, name, price, quantity, description, Url, productsCart, setproductsCart } = product;
           return <Card key={i} id={id} name={name} price={price} quantity={quantity} description={description} Url={Url} productsCart={productsCart} setproductsCart={setproductsCart} />
         })

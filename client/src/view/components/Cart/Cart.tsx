@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 // import Cart from './view/pages/cart/Cart';
 import Card from '../../components/card/Card';
 import Header from '../../components/header/header';
-
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 interface product {
   id:number;
@@ -49,7 +49,7 @@ return(
 <div className='header-left'>   <Link to="/Store">Store</Link>
 </div>
 <div className="header-right">
-  <Link to="/Cart">To The Cart</Link>
+  <Link to="/Cart"><ShoppingCartIcon></ShoppingCartIcon></Link>
   <a href="#contact">Requests</a>
   <a href="#about">Profile</a>
   <Link to="/settings">Settings</Link>

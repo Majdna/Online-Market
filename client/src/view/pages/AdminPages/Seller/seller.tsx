@@ -13,7 +13,7 @@ import { Console } from 'console';
 
 interface product {
     id: string;
-    _id:string;
+    _id: string;
     name: string;
     price: number;
     catagory: string;
@@ -105,7 +105,8 @@ const Seller = () => {
             <div className="wrapper">
                 {productByCatagory.map((product, i) => {
                     const { id, name,_id, price, catagory, amount, quantity, description, Url } = product;
-                    return <AdminCard key={i} id={id} _id={_id} name={name} price={price} catagory={catagory} quantity={quantity} amount={amount} description={description} Url={Url} />
+                   
+                    return <AdminCard key={i} id={id} ID={_id} name={name} price={price} catagory={catagory} quantity={quantity} amount={amount} description={description} Url={Url} />
                 })}
 
             </div>

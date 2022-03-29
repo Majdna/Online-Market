@@ -8,7 +8,16 @@ import Header from '../../../components/header/header';
 const aboutUs = () => {
     return (
         <div>
-            <header><Header></Header></header>
+            <div className="header">
+            <div className="header-right">
+            <Link to="/AdminProfile">Profile</Link>
+                    
+            <Link to="/HelpAdmin">help</Link>
+            <Link to="/aboutUsAdmin">About Us</Link>
+            <Link to="/logIn">LogOut</Link>
+                </div>
+            </div>
+        
         <div className='warpper'>
 
             <div>

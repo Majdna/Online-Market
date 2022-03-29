@@ -35,11 +35,10 @@ export default function Profile() {
                <div className="header">
                 <div className="header-right">
                 <Link to="/AdminProfile">Profile</Link>
-                    <a href="#contact">Requests</a>
-
-                    <Link to="/logIn">LogOut</Link>
+                    
                     <Link to="/HelpAdmin">help</Link>
                     <Link to="/aboutUsAdmin">About Us</Link>
+                    <Link to="/logIn">LogOut</Link>
                 </div>
             </div>
     <div className="wrapper">

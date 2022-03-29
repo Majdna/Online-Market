@@ -18,8 +18,7 @@ import Group from "./view/pages/Groups/group";
 import CreateGroup from "./view/pages/CreateGroup/createGroup";
 import Store from "./view/pages/store/store";
 import Mygroups from './view/pages/mygroups/mygroups';
-import AdminProfile from './view/pages/AdminPages/AdminProfile/profile';
-import Profile from './view/pages/profile/profile2';
+
 import Seller from './view/pages/AdminPages/Seller/seller';
 import Cart from './view/components/Cart/Cart'
 import AboutUsIn from "./view/pages/aboutUsIn/aboutUsIn"
@@ -32,8 +31,8 @@ import EditProduct from './view/pages/AdminPages/EditProduct/EditProduct';
 
 import AddProduct from './view/pages/AdminPages/AddProduct/AddProduct';
 import MyOrders from './view/pages/MyOrders/MyOrders';
-import Profile1 from './view/pages/AdminPages/AdminProfile/profile';
-// import Profile2 from './view/pages/profile/profile2';
+import Profile from './view/pages/AdminPages/AdminProfile/profile';
+
 
 ReactDOM.render(
   <React.StrictMode>
@@ -55,7 +54,7 @@ ReactDOM.render(
         <Route path="/HomePage" element={<HomePage />} />
         <Route path="/mygroups" element={<Mygroups />} />
         <Route path="/mygroups/:id" element={<GroupDetails />} />
-        <Route path="/AdminProfile" element={<AdminProfile />} />
+        <Route path="/profile" element={<Profile />} />
         {/* <Route path="/users/:id" element={<Profile2 />} /> */}
         <Route path="/GroupDetails" element={<GroupDetails />} />
         <Route path="/AddProduct" element={<AddProduct />} />

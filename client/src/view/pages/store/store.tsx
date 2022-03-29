@@ -87,7 +87,7 @@ function Store() {
 
   <Link to="/Cart"> <ShoppingCartIcon></ShoppingCartIcon></Link>
   <a href="#contact">Requests</a>
-  <a href="#about">Profile</a>
+  <a href="/AdminProfile">Profile</a>
   <Link to="/settings">Settings</Link>
   <Link to="/logIn">LogOut</Link>
   <Link to="/help">help</Link>

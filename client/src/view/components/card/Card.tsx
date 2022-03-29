@@ -43,13 +43,13 @@ function Card(prop: any) {
         tempCounter=0;
       }
       setCounter(tempCounter);
-      axios.patch(`http://localhost:4001/products/${_id}`,{ quantity:counter});
+      axios.patch(`http://localhost:4001/products/${_id}`,{ quantity:counter}).then(() => {});
   }
   
   function handleRemoveCounter(id:Number) {
     if(window.confirm("Do you want to delete this product from the cart?")){
       setCounter(0);
-      axios.patch(`http://localhost:4001/products/${_id}`,{ quantity:counter});
+      axios.patch(`http://localhost:4001/products/${_id}`,{ quantity:counter}).then(() => {});
     }
 }
 

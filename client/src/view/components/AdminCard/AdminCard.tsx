@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import EditProduct from '../../pages/AdminPages/EditProduct/EditProduct'
 import { useAppDispatch } from '../../../app/hooks';
 import { edit } from '../../../features/product/productReducer';
+import { SettingsInputHdmiOutlined } from '@mui/icons-material';
 
 
 interface product {
@@ -40,13 +41,13 @@ function AdminCard(prop: any) {
     axios.patch(`http://localhost:3004/products1/${id}`, { amount: tempCounter }).then(({ data }) => console.log(data));
   }
   function handelRemoveProduct(id: number) {
-    axios.delete(`http://localhost:3004/products1/${id}`)
+    axios.delete(`http://localhost:4001/products/${_id}`)
       .then(res => {
         console.log(res);
         console.log(res.data);
       })
 
-    alert("Added product to the store")
+    alert("product removed !!")
     nav("/Seller");
 
   }
@@ -57,10 +58,11 @@ function AdminCard(prop: any) {
       tempCounter = 0;
     }
     setCounter(tempCounter);
-    axios.patch(`http://localhost:3004/products1/${id}`, { amount: tempCounter }).then(({ data }) => console.log(data));
+    axios.patch(`http://localhost:4001/products/${id}`, { amount: tempCounter }).then(({ data }) => console.log(data));
   }
 
   const [ID , setID] = useState();
+  const [_id , setId] = useState();
   const [Name , setName] = useState("");
   const [Price , setPrice] = useState();
   const [Catagory , setCatagory] = useState();
@@ -70,7 +72,8 @@ function AdminCard(prop: any) {
   const [url , setUrl] = useState();
 
   function handelEditProduct(id: number) {
-    setID(prop.id);
+    setID(prop.ID);
+    setId(prop._id);
     setAmount(prop.amount);
     setCatagory(prop.catagory);
     setDescription(prop.description);
@@ -78,13 +81,10 @@ function AdminCard(prop: any) {
     setPrice(prop.price);
     setQuantity(prop.quantity);
     setUrl(prop.Url);
-    console.log({ id, name });
     dispatch(edit([ID, Name, Price, Catagory, Amount, Quantity, Description, url, true]));
   }
 
   const { id, name, price, catagory, quantity, amount, description, Url } = prop;
-  //const [color, setColor] = useState('red');
-
 
 
   return (

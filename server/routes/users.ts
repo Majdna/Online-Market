@@ -71,7 +71,7 @@ router.post('/',(req,res)=>{
          console.log(req.body);
       });
 
-    //   //DELETE PRODUCT BY ID
+      //DELETE PRODUCT BY ID
     //   router.delete('/:productId', async(req,res)=>{
     //     try {
     //         const removedProduct= await Product.remove({_id: req.params.productId});
@@ -83,6 +83,8 @@ router.post('/',(req,res)=>{
     // });
 
         //GET user BY ID
+
+
         router.post('/:userId', async(req,res)=>{
             try {
                 const userById= await Users.findOne({ID: req.params.userId});
@@ -93,4 +95,16 @@ router.post('/',(req,res)=>{
                 res.send({ ok: false, error: error.message });
             }
         });
+
+      //update user groups
+        // router.patch('/:userId', async(req,res)=>{
+        //     try {
+        //         const updatedUser= await Users.updateOne({ID: req.params.userId}, {$set :{groups:req.body}});
+        //         console.log(updatedUser);
+        //         res.json(updatedUser);
+               
+        //     } catch (error: any) {
+        //         res.send({ ok: false, error: error.message });
+        //     }
+        // });
 module.exports = router;

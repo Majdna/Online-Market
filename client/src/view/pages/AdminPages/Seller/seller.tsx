@@ -12,7 +12,8 @@ import Bar from '../../../components/productBar/bar';
 import { Console } from 'console';
 
 interface product {
-    id: number;
+    id: string;
+    _id:string;
     name: string;
     price: number;
     catagory: string;
@@ -103,8 +104,8 @@ const Seller = () => {
             </div>
             <div className="wrapper">
                 {productByCatagory.map((product, i) => {
-                    const { id, name, price, catagory, amount, quantity, description, Url } = product;
-                    return <AdminCard key={i} id={id} name={name} price={price} catagory={catagory} quantity={quantity} amount={amount} description={description} Url={Url} />
+                    const { id, name,_id, price, catagory, amount, quantity, description, Url } = product;
+                    return <AdminCard key={i} id={id} _id={_id} name={name} price={price} catagory={catagory} quantity={quantity} amount={amount} description={description} Url={Url} />
                 })}
 
             </div>

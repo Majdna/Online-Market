@@ -6,7 +6,7 @@ import axios from 'axios';
 import { ContactsOutlined } from '@material-ui/icons';
 import { useAppSelector } from '../../../app/hooks';
 import { convertCompilerOptionsFromJson, isJsxClosingFragment } from 'typescript';
-import { CleaningServices } from '@mui/icons-material';
+import { CleaningServices, ConstructionOutlined } from '@mui/icons-material';
 
 
 
@@ -18,9 +18,6 @@ function CreateGroup(){
 
     function handelSubmit (ev:any){
         ev.preventDefault();
-        // useEffect(()=>{axios.get('http://localhost:3004/group/').then(({data})=>{
-       
-        //axios.post("")
         const members:string = ev.target.members.value;
         const membersArray = members.split(",").map((str:any) => {
             return {id:str}
@@ -29,9 +26,10 @@ function CreateGroup(){
             alert("need more members");
             return;
         }
-        axios.get('http://localhost:3004/users/').then(({data})=>{
+        axios.get('http://localhost:4001/users').then(({data})=>{
             const arr:string[] = [];
-           for(let obj of data){
+             console.log(data.users);
+           for(let obj of data.users){
                arr.push(obj.id);
            }
            for(let memberId of membersArray){
@@ -39,22 +37,36 @@ function CreateGroup(){
                 alert(`${memberId.id} user doesn't exist`);
                 return
             }
-           }
+          }
+         
            const info={
-            id:"99999999",
-            groupName: ev.target.groupName.value,
+            ID:"",
+            Name: ev.target.groupName.value,
             adminId: user.ID,
-            groupMember: membersArray
+            Members: membersArray
             }
            
-            axios.post('http://localhost:3004/group',info)
+            axios.post('http://localhost:4001/groups',info)
             .then((data)=>{
                 alert(`${ev.target.groupName.value} added`);
                 // check repose if ok
                 return data;
             }).catch(err=>{
     
-            })
+            }
+            )
+
+            //  for(let memberId of membersArray){
+            //     axios.post(`http://localhost:4001/users/${memberId.id}`).then(({data})=>{
+            //     let arr:any[] = [...data.groups];
+            //     console.log(arr);
+            //     arr.push(info)
+            //     console.log(arr);
+            //     axios.patch(`http://localhost:4001/users/${memberId.id}`,arr).then(({data})=>{
+            //          console.log(data);
+            //     })
+              
+            //  })}
 
         }).catch(e=>{
             console.log(e)

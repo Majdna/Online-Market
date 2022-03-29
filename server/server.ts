@@ -22,6 +22,7 @@ app.get("/", (req,res)=>{
      res.send("hello")
  })
 
+ console.log(process.env.DB_CONNECTION);
  mongoose.connect(process.env.DB_CONNECTION,
  {useNewUrlParser: true},
  ()=>console.log('connected to DB !!')
@@ -34,5 +35,3 @@ app.get('/*',(req, res)=>{
  app.listen(port, () => {
    return console.log(`Express is listening at http://localhost:${port}`);
 });
-
-

@@ -4,12 +4,15 @@ import Header from '../../../components/header/header';
 import './Seller.scss';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-//components
+
+
 import AdminCard from '../../../components/AdminCard/AdminCard';
 import { useAppSelector } from '../../../../app/hooks';
 
+
 import Bar from '../../../components/productBar/bar';
 import { Console } from 'console';
+
 
 interface product {
     id: string;
@@ -71,11 +74,9 @@ const Seller = () => {
             <div className="header">
                 <div className="header-right">
                     <Link to="/AdminProfile">Profile</Link>
-                    <a href="#contact">Requests</a>
-
-                    <Link to="/logIn">LogOut</Link>
                     <Link to="/HelpAdmin">help</Link>
                     <Link to="/aboutUsAdmin">About Us</Link>
+                    <Link to="/logIn">LogOut</Link>
                 </div>
             </div>
             {/* <Bar></Bar> */}

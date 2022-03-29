@@ -17,6 +17,7 @@ function Header() {
         <a href="#contact">Requests</a>
         <a href="#about">Profile</a>
         <Link to="/settings">Settings</Link>
+        <Link to="/Store">Store</Link>
         <Link to="/logIn">LogOut</Link>
         <Link to="/help">help</Link>
         <Link to="/aboutUsIn">About Us</Link>

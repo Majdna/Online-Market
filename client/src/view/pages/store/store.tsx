@@ -11,7 +11,7 @@ import { Console } from 'console';
 import { useAppSelector } from '../../../app/hooks';
 import { Link } from "react-router-dom";
 import logo from '../logo.png';
-
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 interface product {
   _id:string;
@@ -85,9 +85,9 @@ function Store() {
 </div>
 <div className="header-right">
 
-  <Link to="/Cart">To The Cart</Link>
+  <Link to="/Cart"> <ShoppingCartIcon></ShoppingCartIcon></Link>
   <a href="#contact">Requests</a>
-  <a href="#about">Profile</a>
+  <a href="/AdminProfile">Profile</a>
   <Link to="/settings">Settings</Link>
   <Link to="/logIn">LogOut</Link>
   <Link to="/help">help</Link>

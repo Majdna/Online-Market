@@ -20,9 +20,7 @@ function Login() {
 
         const response=await axios.post("/users/login",{ID,password});
         console.log(response);
-        
-        // dispatch(login([ID, password, true]));
-
+        dispatch(login([ID, password, true]));
             if(ID === "316349349" && password==="123456"){
              nav("/Seller");
             }

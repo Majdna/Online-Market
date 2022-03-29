@@ -45,6 +45,13 @@ function Card(prop: any) {
       setCounter(tempCounter);
       axios.patch(`http://localhost:4001/products/${_id}`,{ quantity:counter});
   }
+  
+  function handleRemoveCounter(id:Number) {
+    if(window.confirm("Do you want to delete this product from the cart?")){
+      setCounter(0);
+      axios.patch(`http://localhost:4001/products/${_id}`,{ quantity:counter});
+    }
+}
 
   const {_id, name, price,quantity, description,  Url} = prop;
   console.log(prop)
@@ -60,7 +67,7 @@ function Card(prop: any) {
         <h3>{name}</h3>
         <p> Price : {price}</p>
      <p><button onClick={()=>handleRemveCounter(_id)}>-</button>  {counter} <button onClick={()=>handleAddCounter(_id)}>+</button> </p> 
-
+    <button onClick={()=>handleRemoveCounter(_id)}>remove from cart</button>
       </div>
   );
 }

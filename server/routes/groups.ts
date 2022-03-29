@@ -17,7 +17,6 @@ router.get('/', async(req,res)=>{
     }
 });
 
-
 router.post('/',(req,res)=>{
     const { ID,
         Name,
@@ -48,4 +47,17 @@ router.post('/',(req,res)=>{
     //         res.send({ ok: false, error: error.message });
     //     }
     // });
+
+
+    // Get Group By GroupId
+    router.post('/:groupId', async(req,res)=>{
+        try {
+            const groupById= await Groups.findOne({_id: req.params.groupId});
+            res.json(groupById);
+           
+        } catch (error: any) {
+            res.send({ ok: false, error: error.message });
+        }
+    });
+
 module.exports = router;

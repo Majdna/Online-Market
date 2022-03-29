@@ -19,7 +19,7 @@ import CreateGroup from "./view/pages/CreateGroup/createGroup";
 import Store from "./view/pages/store/store";
 import Mygroups from './view/pages/mygroups/mygroups';
 import AdminProfile from './view/pages/AdminPages/AdminProfile/profile';
-import Profile from './view/pages/profile/profile';
+import Profile from './view/pages/profile/profile2';
 import Seller from './view/pages/AdminPages/Seller/seller';
 import Cart from './view/components/Cart/Cart'
 import AboutUsIn from "./view/pages/aboutUsIn/aboutUsIn"
@@ -32,6 +32,7 @@ import EditProduct from './view/pages/AdminPages/EditProduct/EditProduct';
 
 import AddProduct from './view/pages/AdminPages/AddProduct/AddProduct';
 import MyOrders from './view/pages/MyOrders/MyOrders';
+import Profile1 from './view/pages/AdminPages/AdminProfile/profile';
 // import Profile2 from './view/pages/profile/profile2';
 
 ReactDOM.render(
@@ -48,6 +49,7 @@ ReactDOM.render(
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/Settings" element={<Settings />} />
+        <Route path="/AdminProfile" element={<Profile />} />
         <Route path="/Group" element={<Group />} />
         <Route path="/CreateGroup" element={<CreateGroup />} />
         <Route path="/HomePage" element={<HomePage />} />

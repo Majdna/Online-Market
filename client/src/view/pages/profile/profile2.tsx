@@ -1,3 +1,4 @@
+
 import './profile.scss';
 import { useState , useEffect,useCallback } from "react";
 import {useParams, Link, useNavigate} from 'react-router-dom';
@@ -5,12 +6,13 @@ import Header from '../../components/header/header';
 import axios from 'axios';
 import WhatsappSharpIcon from '@mui/icons-material/WhatsappSharp';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import { useAppSelector } from '../../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 
-export default function Profile() {
+export default function Profile2() {
     const {id} = useParams();
     const admin = useAppSelector(state=> state.user)
-
+    
+    
     useEffect(()=>{axios.get(`http://localhost:3004/users/${admin.ID}`).then(({data})=>{
     console.log('Response from main API: ',data)
     setFullName(data.fullName);

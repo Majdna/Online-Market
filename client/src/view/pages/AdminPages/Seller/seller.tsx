@@ -15,7 +15,8 @@ import { Console } from 'console';
 
 
 interface product {
-    id: number;
+    id: string;
+    _id: string;
     name: string;
     price: number;
     catagory: string;
@@ -46,13 +47,13 @@ const Seller = () => {
 
 
     function handleClickFunc(){
-        axios.post("/product/addProduct",{id:123,name:"apple",price:100,quantity:10,description:"sssss",Url:"1111111"});
+        //axios.post("/product/addProduct",{id:123,name:"apple",price:100,quantity:10,description:"sssss",Url:"1111111"});
     }
     useEffect(() => {
 
         function handleClick() {
             // ev.preventDefault();
-            console.log(catagory)
+            //console.log(catagory)
             const arr = products.filter((element: any) => {
                 if (element.catagory === catagory) {
                     return element;
@@ -62,7 +63,7 @@ const Seller = () => {
             if (catagory === "All" || catagory === "") {
                 setProductByCatagory([...products]);
             }
-            console.log(arr)
+           // console.log(arr)
 
         }
         handleClick();
@@ -80,20 +81,20 @@ const Seller = () => {
             </div>
             {/* <Bar></Bar> */}
             <div className="navbar">
-                <a href="#All" onClick={(ev: any) => { setCatagory("All") }} >All Product</a>
-                <a href="#fruits" onClick={(ev: any) => { setCatagory("fruits vegetables") }}>fruits vegetables</a>
-                <a href="#Meat" onClick={(ev: any) => { setCatagory("Meat and fish") }}>Meat and fish</a>
-                <a href="#Organic" onClick={(ev: any) => { setCatagory("Organic and healthy") }}>Organic and healthy</a>
-                <a href="#Drinks" onClick={(ev: any) => { setCatagory("Drinks") }}>Drinks</a>
-                <div className="dropdown">
-                    <button className="dropbtn">More
-                        <i className="fa fa-caret-down"></i>
-                    </button>
-                    <div className="dropdown-content">
-                        <a href="#" onClick={(ev: any) => { setCatagory("Frozen") }} >Frozen</a>
-                        <a href="#" onClick={(ev: any) => { setCatagory("fresh bread") }}>fresh bread</a>
-                        <a href="#" onClick={(ev: any) => { setCatagory("Snaks and Sweets") }}>Snaks and Sweets</a>
-                    </div>
+            <a href="#All" onClick={(ev: any) => { setCatagory("All") }} >All Product</a>
+        <a href="#Laptops" onClick={(ev: any) => { setCatagory("Laptops") }}>Laptops</a>
+        <a href="#Smartphones" onClick={(ev: any) => { setCatagory("Smartphones") }}>Smartphones</a>
+        <a href="#TV"  onClick={(ev: any) => { setCatagory("TV") }}>TV</a>
+        <a href="#Cameras"  onClick={(ev: any) => { setCatagory("Cameras") }}>Cameras</a>
+        <div className="dropdown">
+          <button className="dropbtn">More
+            <i className="fa fa-caret-down"></i>
+          </button>
+          <div className="dropdown-content">
+            <a href="#"  onClick={(ev: any) => { setCatagory("VideoGames & Consoles") }} >VideoGames & Consoles</a>
+            <a href="#"  onClick={(ev: any) => { setCatagory("Computers") }}>Computers</a>
+            <a href="#"  onClick={(ev: any) => { setCatagory("Other") }}>Other</a>
+          </div>
                 </div>
 
                 <div className="search_product">
@@ -104,8 +105,9 @@ const Seller = () => {
             </div>
             <div className="wrapper">
                 {productByCatagory.map((product, i) => {
-                    const { id, name, price, catagory, amount, quantity, description, Url } = product;
-                    return <AdminCard key={i} id={id} name={name} price={price} catagory={catagory} quantity={quantity} amount={amount} description={description} Url={Url} />
+                    const { id, name,_id, price, catagory, amount, quantity, description, Url } = product;
+                   
+                    return <AdminCard key={i} id={id} ID={_id} name={name} price={price} catagory={catagory} quantity={quantity} amount={amount} description={description} Url={Url} />
                 })}
 
             </div>

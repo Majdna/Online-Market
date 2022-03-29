@@ -19,7 +19,7 @@ import { useAppSelector } from '../../../app/hooks';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: theme.palette.warning.main,
     color: theme.palette.common.white,
   },
   [`&.${tableCellClasses.body}`]: {
@@ -44,24 +44,26 @@ interface GroupMember {
 }
 
 interface group {
-  id:string;
+  _id: string;
+  Id:string;
   groupName: string;
   adminId:string
   groupMember: GroupMember[];
   }
 
 
-  function handleColumnValue (id:string){
-   console.log(id);
 
-   }
+  // function handleColumnValue (id:string){
+  //  console.log(id);
+
+  //  }
 
 
 export default function Mygroups() {
   const user = useAppSelector(state=> state.user)
-  useEffect(()=>{axios.get(`http://localhost:3004/group/${user.ID}`).then(({data})=>{
-    const arr = [...data];
-     console.log(data);
+  useEffect(()=>{axios.post(`http://localhost:4001/users/${user.ID}`).then(({data})=>{
+     const arr = [...data.groups];
+     console.log(arr);
      setRows(arr);
 
   })},[]);
@@ -88,15 +90,15 @@ export default function Mygroups() {
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <StyledTableRow key={row.id}>
+            <StyledTableRow key={row._id}>
               <StyledTableCell align="center" component="th" scope="row">
-                {row.id}
+                {row._id}
               </StyledTableCell>
               <StyledTableCell align="center">{row.groupName}</StyledTableCell>
               <StyledTableCell align="center">{row.adminId}</StyledTableCell>
               <StyledTableCell align="center"> 
               <PeopleIcon onClick={()=>{
-                navigate(`/mygroups/${row.id}`);
+                navigate(`/mygroups/${row._id}`);
               }}> </PeopleIcon>
               <ProductionQuantityLimitsSharpIcon> </ProductionQuantityLimitsSharpIcon>
               </StyledTableCell>

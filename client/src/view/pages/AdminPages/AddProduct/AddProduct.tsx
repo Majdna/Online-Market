@@ -76,13 +76,13 @@ const AddProduct = () => {
 
                         <input list="browsers" name="browser" placeholder='Product Catagory' onKeyUp={(e:any)=> setCatagory(e.target.value) } />
                         <datalist id="browsers">
-                            <option value="fruits vegetables" />
-                            <option value="Meat and fish" />
-                            <option value="Organic and healthy" />
-                            <option value="Drinks" />
-                            <option value="Frozen" />
-                            <option value="fresh bread" />
-                            <option value="Snak and Sweets" />
+                            <option value="Laptops" />
+                            <option value="Cameras" />
+                            <option value="TV" />
+                            <option value="Smartphones" />
+                            <option value="VideoGame" />
+                            <option value="Computer" />
+                            <option value="Other" />
                         </datalist>
                         <br /><br />
                         <input type="text" placeholder='Product amount' onKeyUp={(e:any)=> setAmount(e.target.value) } />

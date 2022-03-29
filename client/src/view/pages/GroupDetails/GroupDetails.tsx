@@ -26,44 +26,35 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
+    backgroundColor: theme.palette.warning.main,
+
   },
   // hide last border
   '&:last-child td, &:last-child th': {
     border: 0,
+   
   },
 }));
 
 
  
-interface GroupMember {
+interface Member {
   id: string;
 }
 
 interface group {
+  _id:string;
   id:string;
   groupName: string;
-  groupMember: GroupMember[];
+  Members: Member[];
   }
 
-interface user{
-    id: string,
-    fullName: string,
-    address: string,
-    city: string,
-    Email: string,
-    phone: string
-}
-
-
- 
 
 export default function GroupDetails() {
   const {id} = useParams();
-  
-  useEffect(()=>{axios.get(`http://localhost:3004/group/${id}`).then(({data})=>{
-   
-   const arr = [...data.groupMember];
+  useEffect(()=>{axios.post(`http://localhost:4001/groups/${id}`).then(({data})=>{
+   console.log(data);
+   const arr = [...data.Members];
    setGroupName(data.groupName);
    console.log(arr);
    setArr(arr)
@@ -71,14 +62,14 @@ export default function GroupDetails() {
   })
   },[]);
 
-  const [arr,setArr]=useState<Array<GroupMember>>([]);
+  const [arr,setArr]=useState<Array<Member>>([]);
   const [groupName,setGroupName]=useState("");
   let navigate = useNavigate();
  
   return (
     <div>
     <Header></Header>
-    <div className='groupName'>{groupName}</div>
+    <div className='groupName' >{groupName}</div>
    
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 300 }} aria-label="customized table">

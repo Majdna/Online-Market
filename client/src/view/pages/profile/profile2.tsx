@@ -10,11 +10,12 @@ import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 
 export default function Profile2() {
     const {id} = useParams();
-    const admin = useAppSelector(state=> state.user)
+    //const admin = useAppSelector(state=> state.user)
     
     
-    useEffect(()=>{axios.get(`http://localhost:3004/users/${admin.ID}`).then(({data})=>{
+    useEffect(()=>{axios.post(`http://localhost:4001/users/${id}`).then(({data})=>{
     console.log('Response from main API: ',data)
+    console.log(data);
     setFullName(data.fullName);
     setAddress(data.address);
     setCity(data.city);

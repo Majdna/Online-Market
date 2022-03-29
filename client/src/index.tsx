@@ -32,6 +32,7 @@ import EditProduct from './view/pages/AdminPages/EditProduct/EditProduct';
 import AddProduct from './view/pages/AdminPages/AddProduct/AddProduct';
 import MyOrders from './view/pages/MyOrders/MyOrders';
 import Profile from './view/pages/AdminPages/AdminProfile/profile';
+import Profile2 from './view/pages/profile/profile2';
 
 
 ReactDOM.render(
@@ -55,7 +56,7 @@ ReactDOM.render(
         <Route path="/mygroups" element={<Mygroups />} />
         <Route path="/mygroups/:id" element={<GroupDetails />} />
         <Route path="/profile" element={<Profile />} />
-        {/* <Route path="/users/:id" element={<Profile2 />} /> */}
+        <Route path="/users/:id" element={<Profile2 />} />  
         <Route path="/GroupDetails" element={<GroupDetails />} />
         <Route path="/AddProduct" element={<AddProduct />} />
         <Route path="/EditProduct" element={<EditProduct />} />

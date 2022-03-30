@@ -10,7 +10,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { Link, useNavigate } from 'react-router-dom';
 import group from '../Groups/group';
 import axios from 'axios';
-const signUp = () => {
+const SignUp = () => {
     // add use State for user 
     const nav = useNavigate();
     const [email, setEmail] = useState("");
@@ -79,4 +79,4 @@ const signUp = () => {
     ) 
 }
 
-export default signUp;
+export default SignUp;

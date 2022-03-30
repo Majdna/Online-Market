@@ -100,7 +100,9 @@ export default function Mygroups() {
               <PeopleIcon onClick={()=>{
                 navigate(`/mygroups/${row._id}`);
               }}> </PeopleIcon>
-              <ProductionQuantityLimitsSharpIcon> </ProductionQuantityLimitsSharpIcon>
+              <ProductionQuantityLimitsSharpIcon onClick={()=>{
+                navigate(`/Store`);
+              }}> </ProductionQuantityLimitsSharpIcon>
               </StyledTableCell>
             </StyledTableRow>
           ))}

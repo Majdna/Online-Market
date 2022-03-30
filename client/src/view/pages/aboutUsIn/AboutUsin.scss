@@ -1,0 +1,7 @@
+.images img{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column: auto;
+    max-width: 25%;
+    max-height: 100px;
+}

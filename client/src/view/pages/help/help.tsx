@@ -16,6 +16,7 @@ const help = () => {
                    <h1>for any help please concat us at : 
                    </h1>
                    <br />
+                   <img src="https://www.lollydaskal.com/wp-content/uploads/2019/04/Screen-Shot-2019-04-16-at-5.16.54-PM.png" alt="" />
                    <h2>Phone Number : 0505050123</h2>
                    <h2>E-mail : OnlineGroupMarket@gmail.com</h2>
                    <h2>Fax : 03-7777125</h2>

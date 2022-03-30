@@ -36,7 +36,7 @@ function Card(prop: any) {
 
 
   }
-  function handleRemveCounter(_id:number) {
+  function handleRemveCounter(_id:String) {
     let tempCounter = counter;
     tempCounter--;
     if(tempCounter<0){
@@ -49,7 +49,9 @@ function Card(prop: any) {
   function handleRemoveCounter(id:Number) {
     if(window.confirm("Do you want to delete this product from the cart?")){
       setCounter(0);
-      axios.patch(`http://localhost:4001/products/${_id}`,{ quantity:counter}).then(() => {});
+      axios.patch(`http://localhost:4001/products/${_id}`,{ quantity:counter}).then(() => {
+
+      });
     }
 }
 

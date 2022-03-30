@@ -1,11 +1,20 @@
 .warpper a {
-
     float: center;
     color: rgb(255, 255, 255);
-    background-color: black;
-  
     text-align: center;
     padding: 12px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    border-radius: 4px;
+   
+  }
+  h1{
+      color:#FF6700;
+      text-align: center;
+  }
+  .img{
+    float: center; 
     text-decoration: none;
     font-size: 18px; 
     line-height: 25px;

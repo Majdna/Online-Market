@@ -7,6 +7,9 @@ import { Link } from "react-router-dom";
 import Card from '../../components/card/Card';
 import Header from '../../components/header/header';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { handleBreakpoints } from '@mui/system';
+
+
 
 interface product {
   id:number;
@@ -26,21 +29,38 @@ interface product {
 function Cart(prop: any) {
   // console.log(prop.arr)
 
+
+ 
   const [allProducts,setAllProducts] = useState([]);
 
   const [products,setProducts]=useState([]);
+
+  const [totalPrice,setTotalPrice] = useState(0);
+
   useEffect(()=>{axios.get('http://localhost:4001/Products').then(({data})=>{
   const {products} = data; 
   console.log(products);
   setAllProducts(products.filter((product:any)=> {
     if(product.quantity>0){
+  
       return product;
     }
   }));
+  products.map((product:product, i:number)=>{
+    
+    if(product.quantity>0){
+      setTotalPrice(totalPrice+(product.price*product.quantity));
+      console.log(totalPrice)
+    }
+  })
+
   
 })},[]);
 
 // const products = allProducts.filter((product:product) =>  product.quantity>0)
+
+
+
 
 return(
  <div>
@@ -59,13 +79,20 @@ return(
 </div>
 </div></header>
 
+<div>
+        <div>
+        <h1>your cart</h1>
+        </div>
+        <h3>total price: {totalPrice}  </h3>
+        <button>buy</button>
       <div className="cart">
+
      {allProducts.map((product:product, i:number) => {
           const { id, name, price, quantity, description, Url, productsCart, setproductsCart } = product;
           return <Card key={i} id={id} name={name} price={price} quantity={quantity} description={description} Url={Url} productsCart={productsCart} setproductsCart={setproductsCart} />
         })
     }
-
+</div>
     </div>
     </div>
 );
